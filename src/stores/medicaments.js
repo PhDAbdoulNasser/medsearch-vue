@@ -28,7 +28,7 @@ export const useMedicamentsStore = defineStore('medicaments', {
 
       try {
         console.log('Chargement des médicaments depuis API...')
-        const response = await fetch('/api/medicaments.json?t=' + Date.now()) // Cache busting
+        const response = await fetch(import.meta.env.BASE_URL + 'api/medicaments.json?t=' + Date.now()) // Cache busting
         if (!response.ok) throw new Error('Erreur lors du chargement')
         
         const data = await response.json()
@@ -50,7 +50,7 @@ export const useMedicamentsStore = defineStore('medicaments', {
       if (this.stats) return this.stats
 
       try {
-        const response = await fetch('/api/stats.json')
+        const response = await fetch(import.meta.env.BASE_URL + 'api/stats.json')
         if (!response.ok) throw new Error('Erreur lors du chargement des stats')
         
         const data = await response.json()
