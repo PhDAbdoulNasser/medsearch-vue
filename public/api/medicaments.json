@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "codeCIS": 65573834,
+    "denomination": "PHYSIONEAL 35 GLUCOSE 1,36 %, solution pour dialyse péritonéale",
+    "formePharma": "solution pour dialyse péritonéale",
+    "titulaires": "VANTIVE",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "2003-11-12",
+    "voiesAdmin": "intrapéritonéale",
+    "substance": "(S)-LACTATE DE SODIUM",
+    "dosage": "1,12 g"
+  },
+  {
+    "id": 2,
+    "codeCIS": 61274635,
+    "denomination": "PHYSIONEAL 40 GLUCOSE 1,36 %, solution pour dialyse péritonéale",
+    "formePharma": "solution pour dialyse péritonéale",
+    "titulaires": "VANTIVE",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "1999-12-29",
+    "voiesAdmin": "intrapéritonéale",
+    "substance": "(S)-LACTATE DE SODIUM",
+    "dosage": "1,68 g"
+  },
+  {
+    "id": 3,
+    "codeCIS": 60244525,
+    "denomination": "DIALYSE PERITONEALE CONTINUE AMBULATOIRE 2, solution pour dialyse péritonéale",
+    "formePharma": "solution pour dialyse péritonéale",
+    "titulaires": "FRESENIUS MEDICAL CARE DEUTSCHLAND",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "2002-10-04",
+    "voiesAdmin": "intrapéritonéale",
+    "substance": "(S)-LACTATE DE SODIUM",
+    "dosage": "3,925 g"
+  },
+  {
+    "id": 4,
+    "codeCIS": 68870123,
+    "denomination": "PARACETAMOL BIOGARAN 500 mg, comprimé",
+    "formePharma": "comprimé",
+    "titulaires": "BIOGARAN",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "2005-03-15",
+    "voiesAdmin": "orale",
+    "substance": "PARACETAMOL",
+    "dosage": "500 mg",
+    "sectionsRCP": "1. DÉNOMINATION DU MÉDICAMENT\nPARACETAMOL BIOGARAN 500 mg, comprimé\n\n2. COMPOSITION QUALITATIVE ET QUANTITATIVE\nParacétamol.....................................................................500,00 mg\nPour un comprimé.\n\n3. FORME PHARMACEUTIQUE\nComprimé.\nComprimé blanc, rond, sécable.\n\n4. DONNÉES CLINIQUES\n\n4.1. INDICATIONS thérapeutiques\nTraitement symptomatique des douleurs d'intensité légère à modérée et/ou des états fébriles.\n\n4.2. POSOLOGIE et mode d'administration\nPosologie\nAdultes et enfants de plus de 50 kg (à partir d'environ 15 ans) :\n• La dose habituelle est de 500 mg à 1 g de paracétamol par prise (soit 1 à 2 comprimés), à renouveler en cas de besoin au bout de 4 heures minimum.\n• Il n'est généralement pas nécessaire de dépasser 3 g de paracétamol par jour (soit 6 comprimés par jour).\n\n4.3. CONTRE-INDICATIONS\n• Hypersensibilité à la substance active ou à l'un des excipients.\n• Insuffisance hépatocellulaire sévère.\n\n4.4. PRÉCAUTIONS d'emploi et avertissements\n• En cas de traitement prolongé (plus de 5 jours chez l'adulte), surveillance de la fonction hépatique et rénale.\n• Le risque de surdosage est plus important en cas d'affections hépatiques non cirrhotiques.\n\n4.5. EFFETS INDÉSIRABLES\nDans de rares cas :\n• Réactions cutanées de type éruption.\n• Thrombopénie, leucopénie, anémie.\n• Hépatotoxicité en cas de surdosage.",
+    "sectionsNotice": "Qu'est-ce que PARACETAMOL BIOGARAN 500 mg, comprimé et dans quel cas est-il utilisé ?\nCe médicament contient du paracétamol. Il est indiqué en cas de douleur et/ou fièvre.\n\nComment prendre PARACETAMOL BIOGARAN 500 mg, comprimé ?\nVeillez à toujours prendre ce médicament en suivant exactement les instructions de cette notice.\n\nAdultes et enfants de plus de 50 kg :\n• Prendre 1 à 2 comprimés par prise, à renouveler si nécessaire au bout de 4 heures minimum.\n• Ne pas dépasser 6 comprimés par jour.\n• Avaler les comprimés avec un grand verre d'eau.\n\nQue faire si vous avez pris plus de PARACETAMOL BIOGARAN 500 mg, comprimé que vous n'auriez dû ?\nEn cas de surdosage, consultez immédiatement un médecin même en l'absence de symptômes, car il existe un risque d'atteinte hépatique grave et retardée.\n\nQuels sont les effets indésirables éventuels ?\nComme tous les médicaments, ce médicament peut provoquer des effets indésirables.\n• Réactions allergiques cutanées\n• Troubles sanguins (dans de rares cas)\n\nATTENTION : Si vous ressentez des douleurs abdominales, consultez votre médecin.\n\nComment conserver PARACETAMOL BIOGARAN 500 mg, comprimé ?\n• Tenir ce médicament hors de la vue et de la portée des enfants.\n• Ne pas utiliser après la date de péremption.\n• À conserver à température ambiante."
+  },
+  {
+    "id": 5,
+    "codeCIS": 69870456,
+    "denomination": "IBUPROFENE SANDOZ 200 mg, comprimé pelliculé",
+    "formePharma": "comprimé pelliculé",
+    "titulaires": "SANDOZ",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "2008-07-22",
+    "voiesAdmin": "orale",
+    "substance": "IBUPROFENE",
+    "dosage": "200 mg",
+    "sectionsRCP": "1. DÉNOMINATION DU MÉDICAMENT\nIBUPROFENE SANDOZ 200 mg, comprimé pelliculé\n\n2. COMPOSITION QUALITATIVE ET QUANTITATIVE\nIbuprofène.....................................................................200,00 mg\nPour un comprimé pelliculé.\n\n3. FORME PHARMACEUTIQUE\nComprimé pelliculé.\nComprimé pelliculé blanc, rond, biconvexe.\n\n4. DONNÉES CLINIQUES\n\n4.1. INDICATIONS thérapeutiques\nTraitement symptomatique de courte durée de la fièvre et/ou des douleurs telles que maux de tête, états grippaux, douleurs dentaires, courbatures, règles douloureuses.\n\n4.2. POSOLOGIE et mode d'administration\nRéservé à l'adulte et à l'enfant à partir de 20 kg (soit environ 6 ans).\nPosologie chez l'adulte :\n• La dose maximale recommandée est de 1200 mg d'ibuprofène par jour, soit 6 comprimés maximum par jour.\n• Cette dose maximale peut être répartie en 3 ou 4 prises, soit 1 comprimé 3 à 4 fois par jour.\n\n4.3. CONTRE-INDICATIONS\n• Hypersensibilité à la substance active ou à l'un des excipients\n• Antécédents d'asthme, urticaire ou réactions allergiques après prise d'aspirine ou d'AINS\n• Ulcère peptique évolutif\n• Insuffisance cardiaque sévère\n• Insuffisance hépatique sévère\n• Insuffisance rénale sévère\n• Grossesse à partir du 6ème mois\n\n4.4. PRÉCAUTIONS d'emploi et avertissements\n• Les AINS peuvent majorer le risque de complications cardiovasculaires graves\n• Surveillance étroite en cas de traitement concomitant avec des anticoagulants\n• Éviter l'association avec d'autres AINS\n\n4.5. EFFETS INDÉSIRABLES\nEffets indésirables fréquents :\n• Troubles gastro-intestinaux : nausées, vomissements, diarrhée, constipation\n• Céphalées, vertiges\n• Éruptions cutanées\nEffets indésirables graves :\n• Hémorragie digestive\n• Insuffisance rénale aiguë\n• Réactions allergiques sévères",
+    "sectionsNotice": "Qu'est-ce que IBUPROFENE SANDOZ 200 mg, comprimé pelliculé et dans quel cas est-il utilisé ?\nCe médicament est un anti-inflammatoire non stéroïdien (AINS). Il est indiqué dans le traitement de courte durée de la fièvre et des douleurs.\n\nComment prendre IBUPROFENE SANDOZ 200 mg, comprimé pelliculé ?\nVeillez à toujours prendre ce médicament en suivant exactement les instructions de cette notice.\n\nAdultes :\n• Prendre 1 comprimé, à renouveler si nécessaire au bout de 6 heures.\n• Ne pas dépasser 6 comprimés par jour.\n• Avaler le comprimé avec un grand verre d'eau, de préférence pendant les repas.\n\nQue faire si vous avez pris plus d'IBUPROFENE SANDOZ que vous n'auriez dû ?\nEn cas de surdosage, arrêter le traitement et consulter immédiatement un médecin ou contacter un centre antipoison.\n\nQuels sont les effets indésirables éventuels ?\nComme tous les médicaments, ce médicament peut provoquer des effets indésirables :\n• Maux d'estomac, nausées\n• Maux de tête, vertiges\n• Éruptions cutanées\n\nATTENTION : En cas de douleurs à l'estomac ou de selles noires, arrêter le traitement et consulter immédiatement un médecin.\n\nComment conserver IBUPROFENE SANDOZ 200 mg, comprimé pelliculé ?\n• Tenir ce médicament hors de la vue et de la portée des enfants.\n• Ne pas utiliser après la date de péremption.\n• À conserver dans l'emballage d'origine à l'abri de l'humidité.\n\nQue contient IBUPROFENE SANDOZ 200 mg, comprimé pelliculé ?\nLa substance active est l'ibuprofène."
+  },
+  {
+    "id": 6,
+    "codeCIS": 67123789,
+    "denomination": "ASPIRINE UPSA 500 mg, comprimé effervescent",
+    "formePharma": "comprimé effervescent",
+    "titulaires": "UPSA",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "1995-12-08",
+    "voiesAdmin": "orale",
+    "substance": "ACIDE ACETYLSALICYLIQUE",
+    "dosage": "500 mg"
+  },
+  {
+    "id": 7,
+    "codeCIS": 68456321,
+    "denomination": "DOLIPRANE 1000 mg, comprimé",
+    "formePharma": "comprimé",
+    "titulaires": "OPELLA HEALTHCARE FRANCE",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "2001-09-14",
+    "voiesAdmin": "orale",
+    "substance": "PARACETAMOL",
+    "dosage": "1000 mg"
+  },
+  {
+    "id": 8,
+    "codeCIS": 65789123,
+    "denomination": "ADVIL 400 mg, comprimé pelliculé",
+    "formePharma": "comprimé pelliculé",
+    "titulaires": "PFIZER HOLDING FRANCE",
+    "etatCommercial": "Commercialisée",
+    "dateAMM": "2004-06-18",
+    "voiesAdmin": "orale",
+    "substance": "IBUPROFENE",
+    "dosage": "400 mg"
+  }
+]
