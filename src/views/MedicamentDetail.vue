@@ -31,7 +31,7 @@
           </nav>
 
           <!-- Header principal -->
-          <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+          <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             <div class="flex-1">
               <h1 class="text-3xl font-bold text-gray-900 mb-3">
                 {{ medicament.denomination }}
@@ -57,18 +57,18 @@
 
             <!-- Actions rapides -->
             <div class="flex-shrink-0">
-              <div class="flex space-x-3">
+              <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                 <button 
                   v-if="medicament.sectionsRCP"
                   @click="changeTab('rcp')"
-                  class="btn-secondary text-sm"
+                  class="btn-secondary text-sm w-full sm:w-auto text-center"
                 >
                   Voir RCP ({{ medicament.sectionsRCP ? 'OK' : 'NON' }})
                 </button>
                 <button 
                   v-if="medicament.sectionsNotice"
                   @click="changeTab('notice')"
-                  class="btn-secondary text-sm"
+                  class="btn-secondary text-sm w-full sm:w-auto text-center"
                 >
                   Voir Notice ({{ medicament.sectionsNotice ? 'OK' : 'NON' }})
                 </button>
@@ -79,24 +79,24 @@
 
         <!-- Navigation par onglets -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200">
-          <nav class="flex space-x-8 px-6 pt-6 border-b border-gray-200">
+          <nav class="flex flex-col sm:flex-row sm:space-x-8 px-4 sm:px-6 pt-4 sm:pt-6 border-b border-gray-200">
             <button
               v-for="tab in tabs"
               :key="tab.id"
               @click="activeTab = tab.id"
-              class="py-2 px-1 border-b-2 font-medium text-sm transition-colors"
+              class="py-3 px-2 sm:py-2 sm:px-1 border-b-2 font-medium text-sm transition-colors mb-2 sm:mb-0 text-left sm:text-center"
               :class="activeTab === tab.id 
-                ? 'border-blue-500 text-blue-600' 
-                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'"
+                ? 'border-blue-500 text-blue-600 bg-blue-50 sm:bg-transparent rounded-t-lg sm:rounded-none' 
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 sm:hover:bg-transparent rounded-lg sm:rounded-none'"
             >
               {{ tab.name }}
             </button>
           </nav>
 
-          <div class="p-6">
+          <div class="p-4 sm:p-6">
             <!-- Onglet Informations générales -->
             <div v-if="activeTab === 'general'" class="space-y-6">
-              <div class="grid md:grid-cols-2 gap-8">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 <!-- Informations principales -->
                 <div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-4">Informations réglementaires</h3>
@@ -188,10 +188,10 @@
 
             <!-- Onglet RCP -->
             <div v-if="activeTab === 'rcp'" class="space-y-4">
-              <div v-if="medicament.sectionsRCP" class="flex gap-6">
+              <div v-if="medicament.sectionsRCP" class="flex flex-col lg:flex-row gap-4 lg:gap-6">
                 <!-- Table des matières RCP -->
-                <div class="w-64 flex-shrink-0">
-                  <div class="sticky top-4">
+                <div class="w-full lg:w-64 flex-shrink-0">
+                  <div class="lg:sticky lg:top-4">
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                       <h4 class="font-semibold text-blue-900 mb-3 flex items-center">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,12 +199,12 @@
                         </svg>
                         Sommaire RCP
                       </h4>
-                      <nav class="space-y-1">
+                      <nav class="space-y-1 max-h-64 lg:max-h-none overflow-y-auto lg:overflow-visible">
                         <button
                           v-for="(section, index) in rcpSections"
                           :key="index"
                           @click="scrollToRcpSection(index)"
-                          class="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-blue-100 hover:text-blue-800 text-blue-700"
+                          class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-md transition-colors hover:bg-blue-100 hover:text-blue-800 text-blue-700 break-words"
                           :class="{ 'bg-blue-100 text-blue-800 font-medium': currentRcpSection === index }"
                         >
                           {{ section.title }}
@@ -215,8 +215,8 @@
                 </div>
 
                 <!-- Contenu RCP -->
-                <div class="flex-1 prose prose-sm max-w-none">
-                  <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                <div class="flex-1 prose prose-sm max-w-none order-first lg:order-last">
+                  <div class="bg-blue-50 border-l-4 border-blue-400 p-3 sm:p-4 mb-4 sm:mb-6">
                     <div class="flex">
                       <div class="flex-shrink-0">
                         <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
@@ -224,13 +224,13 @@
                         </svg>
                       </div>
                       <div class="ml-3">
-                        <p class="text-sm text-blue-700">
+                        <p class="text-xs sm:text-sm text-blue-700">
                           <strong>Information professionnelle</strong> - Le RCP est destiné aux professionnels de santé et contient les informations techniques et scientifiques.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="text-gray-700" id="rcp-content" ref="rcpContent">
+                  <div class="text-gray-700 text-sm sm:text-base" id="rcp-content" ref="rcpContent">
                     <div v-html="formattedRCP"></div>
                   </div>
                 </div>
@@ -250,10 +250,10 @@
 
             <!-- Onglet Notice -->
             <div v-if="activeTab === 'notice'" class="space-y-4">
-              <div v-if="medicament.sectionsNotice" class="flex gap-6">
+              <div v-if="medicament.sectionsNotice" class="flex flex-col lg:flex-row gap-4 lg:gap-6">
                 <!-- Table des matières Notice -->
-                <div class="w-64 flex-shrink-0">
-                  <div class="sticky top-4">
+                <div class="w-full lg:w-64 flex-shrink-0">
+                  <div class="lg:sticky lg:top-4">
                     <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                       <h4 class="font-semibold text-green-900 mb-3 flex items-center">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,12 +261,12 @@
                         </svg>
                         Sommaire Notice
                       </h4>
-                      <nav class="space-y-1">
+                      <nav class="space-y-1 max-h-64 lg:max-h-none overflow-y-auto lg:overflow-visible">
                         <button
                           v-for="(section, index) in noticeSections"
                           :key="index"
                           @click="scrollToNoticeSection(index)"
-                          class="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-green-100 hover:text-green-800 text-green-700"
+                          class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-md transition-colors hover:bg-green-100 hover:text-green-800 text-green-700 break-words"
                           :class="{ 'bg-green-100 text-green-800 font-medium': currentNoticeSection === index }"
                         >
                           {{ section.title }}
@@ -277,8 +277,8 @@
                 </div>
 
                 <!-- Contenu Notice -->
-                <div class="flex-1 prose prose-sm max-w-none">
-                  <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+                <div class="flex-1 prose prose-sm max-w-none order-first lg:order-last">
+                  <div class="bg-green-50 border-l-4 border-green-400 p-3 sm:p-4 mb-4 sm:mb-6">
                     <div class="flex">
                       <div class="flex-shrink-0">
                         <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
@@ -286,13 +286,13 @@
                         </svg>
                       </div>
                       <div class="ml-3">
-                        <p class="text-sm text-green-700">
+                        <p class="text-xs sm:text-sm text-green-700">
                           <strong>Information patient</strong> - Cette notice contient des informations importantes pour le patient concernant l'utilisation de ce médicament.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="text-gray-700" id="notice-content" ref="noticeContent">
+                  <div class="text-gray-700 text-sm sm:text-base" id="notice-content" ref="noticeContent">
                     <div v-html="formattedNotice"></div>
                   </div>
                 </div>
@@ -413,7 +413,7 @@ export default {
         const sectionIndex = this.rcpSections.findIndex(s => s.title === trimmedLine)
         
         if (sectionIndex >= 0) {
-          return `<h3 id="rcp-section-${sectionIndex}" class="font-bold text-blue-900 mt-6 mb-3 pb-2 border-b border-blue-200">${trimmedLine}</h3>`
+          return `<h3 id="rcp-section-${sectionIndex}" class="font-bold text-blue-900 mt-4 sm:mt-6 mb-2 sm:mb-3 pb-2 border-b border-blue-200 text-sm sm:text-base break-words">${trimmedLine}</h3>`
         }
         
         return line
@@ -434,7 +434,7 @@ export default {
         const sectionIndex = this.noticeSections.findIndex(s => s.title === trimmedLine)
         
         if (sectionIndex >= 0) {
-          return `<h3 id="notice-section-${sectionIndex}" class="font-bold text-green-900 mt-6 mb-3 pb-2 border-b border-green-200">${trimmedLine}</h3>`
+          return `<h3 id="notice-section-${sectionIndex}" class="font-bold text-green-900 mt-4 sm:mt-6 mb-2 sm:mb-3 pb-2 border-b border-green-200 text-sm sm:text-base break-words">${trimmedLine}</h3>`
         }
         
         return line
