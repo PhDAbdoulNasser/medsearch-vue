@@ -58,22 +58,20 @@
             <!-- Actions rapides -->
             <div class="flex-shrink-0">
               <div class="flex space-x-3">
-                <a 
-                  v-if="medicament.urlRCP"
-                  :href="medicament.urlRCP" 
-                  target="_blank"
+                <button 
+                  v-if="medicament.sectionsRCP"
+                  @click="activeTab = 'rcp'"
                   class="btn-secondary text-sm"
                 >
-                  RCP officiel ↗
-                </a>
-                <a 
-                  v-if="medicament.urlNotice"
-                  :href="medicament.urlNotice" 
-                  target="_blank"
+                  Voir RCP
+                </button>
+                <button 
+                  v-if="medicament.sectionsNotice"
+                  @click="activeTab = 'notice'"
                   class="btn-secondary text-sm"
                 >
-                  Notice ↗
-                </a>
+                  Voir Notice
+                </button>
               </div>
             </div>
           </div>
@@ -131,35 +129,33 @@
                   <div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Documentation officielle</h3>
                     <div class="space-y-3">
-                      <a 
-                        v-if="medicament.urlRCP"
-                        :href="medicament.urlRCP" 
-                        target="_blank"
-                        class="flex items-center p-4 border border-blue-200 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
+                      <button 
+                        v-if="medicament.sectionsRCP"
+                        @click="activeTab = 'rcp'"
+                        class="w-full flex items-center p-4 border border-blue-200 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
                       >
-                        <div class="flex-1">
+                        <div class="flex-1 text-left">
                           <p class="font-medium text-blue-900">RCP (Résumé Caractéristiques Produit)</p>
-                          <p class="text-sm text-blue-700">Document officiel ANSM</p>
+                          <p class="text-sm text-blue-700">Document officiel pour les professionnels de santé</p>
                         </div>
                         <svg class="w-5 h-5 text-blue-600 group-hover:text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </button>
 
-                      <a 
-                        v-if="medicament.urlNotice"
-                        :href="medicament.urlNotice" 
-                        target="_blank"
-                        class="flex items-center p-4 border border-green-200 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group"
+                      <button 
+                        v-if="medicament.sectionsNotice"
+                        @click="activeTab = 'notice'"
+                        class="w-full flex items-center p-4 border border-green-200 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group"
                       >
-                        <div class="flex-1">
+                        <div class="flex-1 text-left">
                           <p class="font-medium text-green-900">Notice patient</p>
                           <p class="text-sm text-green-700">Information destinée aux patients</p>
                         </div>
                         <svg class="w-5 h-5 text-green-600 group-hover:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </button>
                     </div>
                   </div>
 
