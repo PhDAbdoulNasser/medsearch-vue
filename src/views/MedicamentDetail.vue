@@ -60,17 +60,17 @@
               <div class="flex space-x-3">
                 <button 
                   v-if="medicament.sectionsRCP"
-                  @click="activeTab = 'rcp'"
+                  @click="changeTab('rcp')"
                   class="btn-secondary text-sm"
                 >
-                  Voir RCP
+                  Voir RCP ({{ medicament.sectionsRCP ? 'OK' : 'NON' }})
                 </button>
                 <button 
                   v-if="medicament.sectionsNotice"
-                  @click="activeTab = 'notice'"
+                  @click="changeTab('notice')"
                   class="btn-secondary text-sm"
                 >
-                  Voir Notice
+                  Voir Notice ({{ medicament.sectionsNotice ? 'OK' : 'NON' }})
                 </button>
               </div>
             </div>
@@ -131,7 +131,7 @@
                     <div class="space-y-3">
                       <button 
                         v-if="medicament.sectionsRCP"
-                        @click="activeTab = 'rcp'"
+                        @click="changeTab('rcp')"
                         class="w-full flex items-center p-4 border border-blue-200 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
                       >
                         <div class="flex-1 text-left">
@@ -145,7 +145,7 @@
 
                       <button 
                         v-if="medicament.sectionsNotice"
-                        @click="activeTab = 'notice'"
+                        @click="changeTab('notice')"
                         class="w-full flex items-center p-4 border border-green-200 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group"
                       >
                         <div class="flex-1 text-left">
@@ -568,6 +568,24 @@ export default {
             console.error('Élément non trouvé du tout pour:', sectionTitle)
           }
         }, 500)
+      })
+    },
+
+    changeTab(tabName) {
+      console.log('Clic sur bouton pour changer vers:', tabName)
+      console.log('Active tab avant:', this.activeTab)
+      console.log('Medicament sectionsRCP:', !!this.medicament?.sectionsRCP)
+      console.log('Medicament sectionsNotice:', !!this.medicament?.sectionsNotice)
+      
+      this.activeTab = tabName
+      console.log('Active tab après:', this.activeTab)
+      
+      // Scroll vers le haut de la section onglets
+      this.$nextTick(() => {
+        const tabsSection = document.querySelector('.bg-white.rounded-lg.shadow-sm.border.border-gray-200:nth-child(2)')
+        if (tabsSection) {
+          tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       })
     },
 
