@@ -1,12 +1,12 @@
 <template>
   <div class="relative" ref="searchContainer">
-    <div class="flex">
+    <div class="flex flex-col sm:flex-row gap-2 sm:gap-0">
       <input 
         ref="searchInput"
         type="text" 
         v-model="searchQuery"
         :placeholder="placeholder"
-        class="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
         @input="handleInput"
         @keydown="handleKeydown"
         @focus="handleFocus"
@@ -14,9 +14,10 @@
       />
       <button 
         @click="handleSearch"
-        class="bg-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-blue-700 transition-colors"
+        class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg hover:bg-blue-700 transition-colors text-sm sm:text-base font-medium"
       >
-        Rechercher
+        <span class="hidden sm:inline">Rechercher</span>
+        <span class="sm:hidden">Recherche</span>
       </button>
     </div>
 
@@ -24,30 +25,31 @@
     <div 
       v-if="showSuggestions && suggestions.length > 0"
       ref="suggestionsContainer"
-      class="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 max-h-64 overflow-y-auto"
+      class="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 max-h-64 sm:max-h-72 overflow-y-auto"
     >
       <div
         v-for="(suggestion, index) in suggestions"
         :key="suggestion.id"
         @click.stop="selectSuggestion(suggestion)"
         @mouseenter="selectedIndex = index"
-        class="px-4 py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
+        class="px-3 sm:px-4 py-2 sm:py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
         :class="{ 'bg-blue-50': index === selectedIndex }"
       >
         <div class="flex items-center justify-between">
-          <div class="flex-1">
-            <p class="font-medium text-gray-900">{{ suggestion.title }}</p>
-            <p class="text-sm text-gray-500">{{ suggestion.subtitle }}</p>
+          <div class="flex-1 min-w-0">
+            <p class="font-medium text-gray-900 text-sm sm:text-base truncate">{{ suggestion.title }}</p>
+            <p class="text-xs sm:text-sm text-gray-500 truncate">{{ suggestion.subtitle }}</p>
           </div>
           <span 
-            class="px-2 py-1 text-xs rounded-full"
+            class="px-2 py-1 text-xs rounded-full ml-2 flex-shrink-0"
             :class="{
               'bg-blue-100 text-blue-800': suggestion.type === 'medicament',
               'bg-green-100 text-green-800': suggestion.type === 'substance',
               'bg-orange-100 text-orange-800': suggestion.type === 'laboratoire'
             }"
           >
-            {{ suggestion.type }}
+            <span class="hidden sm:inline">{{ suggestion.type }}</span>
+            <span class="sm:hidden">{{ suggestion.type.charAt(0).toUpperCase() }}</span>
           </span>
         </div>
       </div>

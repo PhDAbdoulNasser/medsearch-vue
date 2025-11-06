@@ -1,10 +1,10 @@
 <template>
-  <div class="py-8">
+  <div class="py-4 sm:py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-gray-900 mb-8">Recherche de médicaments</h1>
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">Recherche de médicaments</h1>
       
       <!-- Barre de recherche -->
-      <div class="mb-8">
+      <div class="mb-6 sm:mb-8">
         <div class="max-w-2xl">
           <SearchBar
             v-model="searchQuery"
@@ -21,27 +21,27 @@
       </div>
 
       <!-- Résultats -->
-      <div v-else-if="results.length > 0" class="space-y-4">
-        <p class="text-gray-600 mb-4">{{ results.length }} résultat(s) trouvé(s)</p>
+      <div v-else-if="results.length > 0" class="space-y-3 sm:space-y-4">
+        <p class="text-gray-600 mb-4 text-sm sm:text-base">{{ results.length }} résultat(s) trouvé(s)</p>
         <div 
           v-for="medicament in results" 
           :key="medicament.id"
           @click="goToMedicament(medicament.id)"
-          class="card p-6 hover:shadow-xl transition-shadow cursor-pointer"
+          class="card p-4 sm:p-6 hover:shadow-xl transition-shadow cursor-pointer"
         >
-          <div class="flex justify-between items-start mb-3">
-            <h3 class="text-lg font-semibold text-gray-900 flex-1">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900 flex-1 leading-tight">
               {{ medicament.denomination }}
             </h3>
             <span 
-              class="px-2 py-1 text-xs rounded-full"
+              class="px-2 py-1 text-xs rounded-full self-start sm:self-auto"
               :class="medicament.etatCommercial === 'Commercialisée' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
             >
               {{ medicament.etatCommercial }}
             </span>
           </div>
           
-          <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600">
             <div>
               <p><span class="font-medium">Laboratoire:</span> {{ medicament.titulaires }}</p>
               <p><span class="font-medium">Forme:</span> {{ medicament.formePharma }}</p>

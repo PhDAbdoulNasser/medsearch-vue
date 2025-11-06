@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-100 py-24">
+    <section class="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-100 py-12 sm:py-16 lg:py-24">
       <!-- Animation d'arrière-plan élégante -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Cercles flottants colorés -->
@@ -63,18 +63,18 @@
           </div>
 
           <!-- Titre principal -->
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6">
             <span class="text-gray-900">Recherche</span>
-            <span class="text-gradient block mt-2">Médicamenteuse</span>
+            <span class="text-gradient block mt-1 sm:mt-2">Médicamenteuse</span>
           </h1>
 
           <!-- Sous-titre -->
-          <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12">
+          <p class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
             La référence des professionnels de santé pour accéder aux informations complètes sur les médicaments
           </p>
 
           <!-- Barre de recherche -->
-          <div class="max-w-2xl mx-auto mb-8">
+          <div class="max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
             <SearchBar
               v-model="searchQuery"
               placeholder="Rechercher un médicament, substance ou laboratoire..."
@@ -84,21 +84,21 @@
           </div>
 
           <!-- Statistiques -->
-          <div class="flex flex-wrap justify-center gap-8 text-center">
+          <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-center px-4">
             <div class="flex items-center space-x-2">
-              <div class="w-5 h-5 bg-blue-500 rounded"></div>
-              <span class="text-2xl font-bold text-gray-900">{{ stats?.totalMedicaments || 0 }}</span>
-              <span class="text-gray-600">médicaments</span>
+              <div class="w-4 h-4 sm:w-5 sm:h-5 bg-blue-500 rounded"></div>
+              <span class="text-lg sm:text-2xl font-bold text-gray-900">{{ stats?.totalMedicaments || 0 }}</span>
+              <span class="text-gray-600 text-sm sm:text-base">médicaments</span>
             </div>
             <div class="flex items-center space-x-2">
-              <div class="w-5 h-5 bg-green-500 rounded"></div>
-              <span class="text-2xl font-bold text-gray-900">{{ stats?.totalLaboratoires || 0 }}</span>
-              <span class="text-gray-600">laboratoires</span>
+              <div class="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded"></div>
+              <span class="text-lg sm:text-2xl font-bold text-gray-900">{{ stats?.totalLaboratoires || 0 }}</span>
+              <span class="text-gray-600 text-sm sm:text-base">laboratoires</span>
             </div>
             <div class="flex items-center space-x-2">
-              <div class="w-5 h-5 bg-orange-500 rounded"></div>
-              <span class="text-2xl font-bold text-gray-900">{{ stats?.totalSubstances || 0 }}</span>
-              <span class="text-gray-600">substances</span>
+              <div class="w-4 h-4 sm:w-5 sm:h-5 bg-orange-500 rounded"></div>
+              <span class="text-lg sm:text-2xl font-bold text-gray-900">{{ stats?.totalSubstances || 0 }}</span>
+              <span class="text-gray-600 text-sm sm:text-base">substances</span>
             </div>
           </div>
         </div>
