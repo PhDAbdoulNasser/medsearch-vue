@@ -231,7 +231,7 @@
                     </div>
                   </div>
                   <div class="text-gray-700" id="rcp-content" ref="rcpContent">
-                    <div v-html="formatRCP(medicament.sectionsRCP)"></div>
+                    <div v-html="formattedRCP"></div>
                   </div>
                 </div>
               </div>
@@ -293,7 +293,7 @@
                     </div>
                   </div>
                   <div class="text-gray-700" id="notice-content" ref="noticeContent">
-                    <div v-html="formatNotice(medicament.sectionsNotice)"></div>
+                    <div v-html="formattedNotice"></div>
                   </div>
                 </div>
               </div>
@@ -335,7 +335,10 @@ export default {
       rcpSections: [],
       noticeSections: [],
       currentRcpSection: null,
-      currentNoticeSection: null
+      currentNoticeSection: null,
+      formattedRCP: '',
+      formattedNotice: '',
+      sectionsParsingDone: false
     }
   },
   async mounted() {
@@ -359,6 +362,9 @@ export default {
         
         if (!this.medicament) {
           this.error = 'Médicament non trouvé'
+        } else {
+          // Parser les sections une seule fois
+          this.initializeSections()
         }
       } catch (err) {
         this.error = 'Erreur lors du chargement du médicament'
@@ -377,16 +383,28 @@ export default {
       }
     },
 
-    formatRCP(rcpText) {
+    initializeSections() {
+      if (this.sectionsParsingDone) return
+      
+      // Parser et formater le RCP
+      if (this.medicament.sectionsRCP) {
+        this.parseRcpSections(this.medicament.sectionsRCP)
+        this.formattedRCP = this.formatRCPContent(this.medicament.sectionsRCP)
+      }
+      
+      // Parser et formater la Notice
+      if (this.medicament.sectionsNotice) {
+        this.parseNoticeSections(this.medicament.sectionsNotice)
+        this.formattedNotice = this.formatNoticeContent(this.medicament.sectionsNotice)
+      }
+      
+      this.sectionsParsingDone = true
+    },
+
+    formatRCPContent(rcpText) {
       if (!rcpText) return 'Aucun contenu RCP disponible'
       
-      console.log('RCP Text:', rcpText.substring(0, 200) + '...')
-      
-      // Parser les sections pour la table des matières d'abord
-      this.parseRcpSections(rcpText)
-      console.log('Parsed RCP sections:', this.rcpSections)
-      
-      // Formatage ligne par ligne pour être sûr
+      // Formatage ligne par ligne
       const lines = rcpText.split('\n')
       const formattedLines = lines.map((line) => {
         const trimmedLine = line.trim()
@@ -404,16 +422,10 @@ export default {
       return formattedLines.join('<br>')
     },
 
-    formatNotice(noticeText) {
+    formatNoticeContent(noticeText) {
       if (!noticeText) return 'Aucun contenu Notice disponible'
       
-      console.log('Notice Text:', noticeText.substring(0, 200) + '...')
-      
-      // Parser les sections pour la table des matières d'abord
-      this.parseNoticeSections(noticeText)
-      console.log('Parsed Notice sections:', this.noticeSections)
-      
-      // Formatage ligne par ligne pour être sûr
+      // Formatage ligne par ligne
       const lines = noticeText.split('\n')
       const formattedLines = lines.map((line) => {
         const trimmedLine = line.trim()
@@ -443,12 +455,13 @@ export default {
     },
 
     parseRcpSections(rcpText) {
-      this.rcpSections = []
+      if (this.rcpSections.length > 0) return // Éviter de parser plusieurs fois
+      
       const lines = rcpText.split('\n')
       
       lines.forEach((line) => {
         const trimmedLine = line.trim()
-        // Détecter les titres de sections RCP - amélioré pour être plus flexible
+        // Détecter les titres de sections RCP
         if (/^\d+\s*\..+/.test(trimmedLine) && trimmedLine.length > 3) {
           this.rcpSections.push({
             title: trimmedLine,
@@ -456,16 +469,16 @@ export default {
           })
         }
       })
-      console.log('Found RCP sections:', this.rcpSections.length)
     },
 
     parseNoticeSections(noticeText) {
-      this.noticeSections = []
+      if (this.noticeSections.length > 0) return // Éviter de parser plusieurs fois
+      
       const lines = noticeText.split('\n')
       
       lines.forEach((line) => {
         const trimmedLine = line.trim()
-        // Détecter les titres de sections Notice - plus flexible
+        // Détecter les titres de sections Notice
         if ((trimmedLine.toLowerCase().startsWith('qu') && trimmedLine.endsWith('?')) ||
             /^\d+\s*[.-]/.test(trimmedLine) ||
             trimmedLine.toLowerCase().includes('que contient') ||
@@ -478,7 +491,6 @@ export default {
           }
         }
       })
-      console.log('Found Notice sections:', this.noticeSections.length)
     },
 
     scrollToRcpSection(index) {
